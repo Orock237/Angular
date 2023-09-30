@@ -1,1 +1,86 @@
 <p>unit-test works!</p>
+<div>
+    <h5>1st Test: Template Reference Variables</h5>
+    <input #myInput type="text">
+    <button (click)="logMessage(myInput.value)">Log</button>
+</div>
+
+<br/>
+<div>
+    <h5>2nd Test: Two Way Binding</h5>
+    <input [(ngModel)]="name" type="text">
+    {{name}}
+</div>
+
+<br/>
+<div>
+    <h5>3rd Test: ngIf Directive</h5>
+    <p *ngIf="displayText; else elseBlock">Hello World</p>
+    <ng-template #elseBlock>
+        <p>Text is hidden.</p>
+    </ng-template>
+</div>
+
+<br/>
+<div>
+    <h5>4th Test: ngSwitch Directive</h5>
+    <div [ngSwitch]="color">
+        <div *ngSwitchCase="'red'" style="color: red;">You picked red color</div>
+        <div *ngSwitchCase="'blue'" style="color: blue;">You picked blue color</div>
+        <div *ngSwitchCase="'green'" style="color: green;">You picked green color</div>
+        <div *ngSwitchDefault>Pick again</div>
+    </div>
+</div>
+
+<br/>
+<div>
+    <h5>5th Test: Pipes</h5>
+    <p>
+        {{title}}  
+        <br/>  
+        {{title | lowercase}}  
+        <br/>  
+        {{title | uppercase}}  
+        <br/>  
+        {{message | titlecase}}  
+        <br/> 
+        {{title | slice:3}}  
+        <br/> 
+        {{title | slice:3:5}}  
+
+        <br/> 
+        {{person | json}}  
+
+        <br/> 
+        {{5.678 | number:'1.2-3'}}  
+        <br/> 
+        {{5.678 | number:'3.4-5'}}  
+        <br/> 
+        {{5.678 | number:'3.1-2'}}  
+        <br/> 
+        {{5.678 | number:'3.1-2'}}  
+        <br/> 
+
+        {{0.25 | percent}}  
+        <br/> 
+        {{0.25 | currency}}  
+        <br/> 
+        {{0.25 | currency: 'EUR'}}  
+        <br/> 
+        {{0.25 | currency: 'EUR': 'code'}}  
+        <br/> 
+
+        {{date}}  
+        <br/> 
+        {{date | date:'short'}}  
+        <br/> 
+        {{date | date:'shortDate'}}  
+        <br/> 
+        {{date | date:'shortTime'}}  
+        <br/> 
+        {{date | date:'longTime'}}  
+        <br/> 
+        {{date | date:'longDate'}}  
+        <br/>
+    </p>
+</div>

@@ -1,0 +1,7 @@
+[
+    {"id": 1, "name": "Angular", "type": "JS-Framework"},
+    {"id": 2, "name": "Node", "type": "Backend"},
+    {"id": 3, "name": "MongoDB", "type": "Database"},
+    {"id": 4, "name": "Ruby", "type": "Unknow"},
+    {"id": 5, "name": "Bootstrap", "type": "CSS-JS-Framework"}
+  ]

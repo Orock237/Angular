@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { DepartmentService } from '../department.service';
 
 @Component({
   selector: 'app-department-list',
@@ -8,19 +9,14 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 })
 export class DepartmentListComponent implements OnInit {
 
-  departments = [
-    {"id": 1, "name": "Angular"},
-    {"id": 2, "name": "Node"},
-    {"id": 3, "name": "MongoDB"},
-    {"id": 4, "name": "Ruby"},
-    {"id": 5, "name": "Bootstrap"}
-  ]
-  constructor(private router: Router, private route: ActivatedRoute){
+  public departments ;
+  constructor(private router: Router, private route: ActivatedRoute, private _departmentService: DepartmentService){
 
   }
 
   ngOnInit(): void {
-
+    this._departmentService.getDepartments()
+    .subscribe(data => this.departments = data);
   }
 
 //Navigate to the department-detail of the selected department

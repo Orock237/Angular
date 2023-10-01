@@ -7,6 +7,8 @@ import { UnitTestComponent } from './unit-test/unit-test.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { DepartmentListComponent } from './department-list/department-list.component';
 import { DepartmentDetailComponent } from './department-detail/department-detail.component';
+import { DepartmentOverviewComponent } from './department-overview/department-overview.component';
+import { DepartmentContactComponent } from './department-contact/department-contact.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/angular-intro', pathMatch: 'full'}, //default-page
@@ -15,7 +17,14 @@ const routes: Routes = [
   {path: 'angular-intro', component: AngularIntroComponent},
   {path: 'imprint/unit-test', component: UnitTestComponent},
   {path: 'department-list', component: DepartmentListComponent},
-  {path: 'department-list/:id', component: DepartmentDetailComponent},
+  {
+    path: 'department-list/:id', 
+    component: DepartmentDetailComponent,
+    children: [
+      {path: 'overview', component: DepartmentOverviewComponent},
+      {path: 'contact', component: DepartmentContactComponent}
+    ]
+  },
   {path: '**', component: PageNotFoundComponent} //The Not-Found-page must be at the end of the routes
 ];
 
@@ -24,6 +33,12 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [ImprintComponent, CookiePolicyComponent,
-   AngularIntroComponent, UnitTestComponent, PageNotFoundComponent, DepartmentListComponent,
-   DepartmentDetailComponent]
+export const routingComponents = [ImprintComponent, 
+                                  CookiePolicyComponent,
+                                  AngularIntroComponent, 
+                                  UnitTestComponent, 
+                                  PageNotFoundComponent, 
+                                  DepartmentListComponent,
+                                  DepartmentDetailComponent,
+                                  DepartmentOverviewComponent, 
+                                  DepartmentContactComponent]

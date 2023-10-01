@@ -1,1 +1,20 @@
-<p>department-detail works! <br/> department: {{departmentId}}, <span>{{department_name}}, {{department_type}}</span></p>
+<p>department-detail works! <br/> department: {{departmentId}}</p>
+<!-- <p><span>{{department.name}}, {{department.type}}</span></p> -->
+
+<div>
+    <div>
+        <button class="mx-2" (click)="showOverview()">Overview</button>
+        <button (click)="showContact()">Contact</button>
+    </div>
+    
+    <router-outlet></router-outlet>
+
+<br/>
+    <div>
+        <button type="button" (click)="goPrevious()" class="btn btn-primary mx-2">Previous</button>
+        <button type="button" (click)="goNext()" class="btn btn-primary">Next</button>
+    </div>
+    <div>
+        <button type="button" (click)="goBack()" class="btn btn-secondary mx-2 my-2">Back</button>
+    </div>
+</div>

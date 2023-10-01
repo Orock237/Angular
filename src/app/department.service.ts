@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 import { IDepartment } from './department';
 
@@ -11,7 +13,12 @@ export class DepartmentService {
   private _url: string = "/assets/data/departments.json"
   constructor(private http: HttpClient) { }
 
-  getDepartments(){
-    return this.http.get<IDepartment[]>(this._url);
+  getDepartments(): Observable<IDepartment[]>{
+    return this.http.get<IDepartment[]>(this._url)
+    .pipe(catchError(this.errorHnadler));
+  }
+
+  errorHnadler(error: HttpErrorResponse){
+    return throwError(() => new Error(error.message || "Server Error")); 
   }
 }

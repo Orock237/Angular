@@ -17,7 +17,8 @@ export class DepartmentDetailComponent implements OnInit {
      private _departmentService: DepartmentService){}
 
   ngOnInit(): void {
-
+    let name = "Orock";
+    console.log(`Hallo ${name}`);
     // let id = this.route.snapshot.paramMap.get('id');
     // this.departmentId = id;
     //OR

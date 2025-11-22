@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class DepartmentContactComponent {
 
+  private async generateListDepartmen() {
+    try{
+      const result = await fetchData();
+      result.filter(item => !item.includes("24"))
+    }
+    catch(){
+      console.error("List od departments not founf")
+    }
+
 }

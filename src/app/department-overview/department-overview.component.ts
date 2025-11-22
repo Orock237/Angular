@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class DepartmentOverviewComponent {
 
+  public ngOnInit() {
+    const modus = "ON" | "OFF";
+
+    if(modus === "ON") {
+      console.warn("The ON modus will be activate")
+    } else {
+      console.warn("The OFF modus will be activate")
+    }
+    
+  }
+
 }
